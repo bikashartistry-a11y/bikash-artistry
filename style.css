@@ -42,6 +42,9 @@ html {
   background-color: var(--bg-pitch);
   color: var(--text-primary);
   font-family: var(--font-body);
+  overflow-x: hidden;
+  max-width: 100%;
+  width: 100%;
 }
 
 body {
@@ -49,6 +52,8 @@ body {
   background-color: var(--bg-pitch);
   color: var(--text-primary);
   overflow-x: hidden;
+  max-width: 100%;
+  width: 100%;
   position: relative;
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
@@ -103,6 +108,8 @@ body {
   position: relative;
   z-index: 10;
   width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
   display: flex;
   flex-direction: column;
 }
@@ -351,16 +358,18 @@ body {
 
 .hero-headline {
   font-family: var(--font-display);
-  font-size: clamp(2.8rem, 7.5vw, 5.2rem);
+  font-size: clamp(2rem, 8vw, 4.5rem);
   font-weight: 900;
   line-height: 1.05;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.05em;
   text-transform: uppercase;
   margin-bottom: 6px;
   color: #ffffff;
   text-shadow: 
     0 0 30px var(--crimson-glow-strong),
     0 0 70px rgba(196, 8, 34, 0.4);
+  word-break: normal;
+  overflow-wrap: break-word;
 }
 
 .hero-name-crimson {
@@ -372,13 +381,15 @@ body {
 .hero-brand-subtitle {
   display: block;
   font-family: var(--font-display);
-  font-size: clamp(1.2rem, 2.6vw, 1.85rem);
+  font-size: clamp(1.25rem, 5vw, 2.25rem);
   font-weight: 700;
-  letter-spacing: 0.22em;
+  letter-spacing: 0.16em;
   color: var(--crimson-bright);
   text-shadow: 0 0 16px var(--crimson-glow);
   margin-top: 10px;
   text-transform: uppercase;
+  word-break: normal;
+  overflow-wrap: break-word;
 }
 
 .hero-tagline-single {
@@ -1211,39 +1222,384 @@ body {
 }
 
 /* ==========================================================================
-   RESPONSIVE DESIGN
+   RESPONSIVE DESIGN (360px - 768px MOBILE & INSTAGRAM BROWSER OPTIMIZED)
    ========================================================================== */
 @media (max-width: 768px) {
-  .nav-links {
+  /* 1. Global Containers & Padding */
+  .content-wrapper {
+    padding: 0 16px;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  .section {
+    padding: 70px 0;
+  }
+
+  .section-header {
+    margin-bottom: 40px;
+  }
+
+  .section-title {
+    font-size: clamp(1.65rem, 6vw, 2.2rem);
+  }
+
+  .section-desc {
+    font-size: 0.9rem;
+  }
+
+  /* 2. Mobile Navbar */
+  .site-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+  }
+
+  .nav-inner {
+    height: auto;
+    min-height: 52px;
+    padding: 8px 14px;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .brand-logo {
+    gap: 8px;
+    font-size: 0.95rem;
+  }
+
+  .brand-crest {
+    width: 24px;
+    height: 24px;
+  }
+
+  .brand-name {
+    font-size: 0.88rem;
+    letter-spacing: 0.08em;
+  }
+
+  .brand-subname {
+    font-size: 0.55rem;
+    letter-spacing: 0.12em;
+  }
+
+  .nav-cta {
+    padding: 6px 12px;
+    font-size: 0.68rem;
+    letter-spacing: 0.08em;
+    gap: 4px;
+    white-space: nowrap;
+  }
+
+  .nav-cta svg {
     display: none;
   }
-  
-  .timeline-track {
-    left: 20px;
+
+  /* Stack nav links cleanly into a compact horizontal bar */
+  .nav-links {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    padding: 6px 0 2px;
+    border-top: 1px solid rgba(220, 10, 35, 0.18);
+    overflow-x: auto;
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
   }
-  
-  .timeline-node {
-    left: 9px;
+
+  .nav-links::-webkit-scrollbar {
+    display: none;
   }
-  
-  .timeline-item {
-    padding-left: 48px;
+
+  .nav-link {
+    font-size: 11px;
+    padding: 3px 4px;
+    letter-spacing: 0.06em;
   }
-  
-  .timeline-card {
-    padding: 24px 20px;
+
+  /* 3. Hero Section & Typography */
+  .hero-section {
+    padding: 120px 0 60px;
+    min-height: auto;
   }
-  
+
+  .hero-glow-orb {
+    width: 300px;
+    height: 200px;
+  }
+
+  .hero-badge {
+    font-size: 0.72rem;
+    padding: 6px 14px;
+    margin-bottom: 18px;
+    white-space: normal;
+    line-height: 1.4;
+  }
+
+  .hero-tagline-single {
+    font-size: 0.88rem;
+    padding: 6px 10px;
+    line-height: 1.5;
+    margin: 14px auto 16px;
+  }
+
+  .hero-description {
+    font-size: 0.92rem;
+    margin-bottom: 28px;
+    line-height: 1.6;
+  }
+
+  /* Stack hero buttons full width */
+  .hero-actions {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    gap: 12px;
+    margin-bottom: 36px;
+  }
+
+  .hero-actions .btn-blood-primary,
+  .hero-actions .btn-blood-secondary {
+    width: 100%;
+    max-width: 100%;
+    text-align: center;
+    justify-content: center;
+    padding: 13px 20px;
+    font-size: 0.88rem;
+    box-sizing: border-box;
+  }
+
   .hero-stats {
     grid-template-columns: 1fr;
-    gap: 16px;
+    gap: 14px;
+    padding: 16px 14px;
+    width: 100%;
+    box-sizing: border-box;
   }
-  
+
   .stat-item:not(:last-child)::after {
     display: none;
   }
-  
+
+  .stat-number {
+    font-size: 1.8rem;
+  }
+
+  /* 4. Timeline & Skills Cards */
+  .timeline-container {
+    padding: 0;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .timeline-track {
+    left: 8px;
+  }
+
+  .timeline-node {
+    left: 0px;
+    width: 18px;
+    height: 18px;
+    top: 20px;
+  }
+
+  .timeline-node-inner {
+    width: 6px;
+    height: 6px;
+  }
+
+  .timeline-item {
+    padding-left: 16px;
+    margin-bottom: 30px;
+  }
+
+  .timeline-card {
+    padding: 16px;
+    border-radius: 8px;
+  }
+
+  .timeline-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .timeline-role {
+    font-size: 1.18rem;
+    line-height: 1.3;
+  }
+
+  .timeline-period {
+    font-size: 0.72rem;
+    padding: 3px 8px;
+  }
+
+  .timeline-focus {
+    font-size: 0.84rem;
+  }
+
+  .timeline-summary {
+    font-size: 0.86rem;
+    margin-bottom: 14px;
+  }
+
+  .timeline-highlights {
+    gap: 8px;
+    margin-bottom: 16px;
+  }
+
+  .timeline-highlights li {
+    font-size: 0.82rem;
+    gap: 8px;
+    line-height: 1.5;
+  }
+
+  .timeline-bullet {
+    font-size: 0.76rem;
+  }
+
+  .timeline-tags {
+    gap: 6px;
+  }
+
+  .timeline-tag {
+    font-size: 0.7rem;
+    padding: 3px 8px;
+  }
+
+  /* Skills Grid - single column */
+  .skills-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .skill-card {
+    padding: 18px 16px;
+  }
+
+  .skill-name {
+    font-size: 1.08rem;
+  }
+
+  .skill-desc {
+    font-size: 0.84rem;
+  }
+
+  /* 5. 9:16 Video Cards & Contact */
+  .shorts-grid {
+    grid-template-columns: 1fr;
+    gap: 22px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .short-card {
+    max-width: 340px;
+    width: 100%;
+    margin: 0 auto;
+    border-radius: 10px;
+  }
+
+  .short-title {
+    font-size: 0.98rem;
+  }
+
+  .short-desc {
+    font-size: 0.75rem;
+  }
+
+  /* Contact Footer */
+  .site-footer {
+    padding: 60px 0 36px;
+  }
+
   .footer-card {
-    padding: 32px 20px;
+    padding: 26px 16px;
+    margin-bottom: 36px;
+  }
+
+  .footer-artist-title {
+    font-size: 1.55rem;
+    letter-spacing: 0.06em;
+  }
+
+  .footer-statement {
+    font-size: 0.9rem;
+    margin-bottom: 24px;
+  }
+
+  .contact-channels {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    width: 100%;
+  }
+
+  .contact-pill {
+    padding: 14px 16px;
+    gap: 12px;
+    flex-wrap: wrap;
+    align-items: center;
+    box-sizing: border-box;
+    width: 100%;
+  }
+
+  .pill-icon {
+    width: 38px;
+    height: 38px;
+    font-size: 1.1rem;
+  }
+
+  .pill-details {
+    flex: 1;
+    min-width: 150px;
+    word-break: break-all;
+    overflow-wrap: anywhere;
+  }
+
+  .pill-value {
+    font-size: 0.86rem;
+    word-break: break-all;
+    overflow-wrap: anywhere;
+  }
+
+  .copy-btn {
+    padding: 5px 10px;
+    font-size: 0.68rem;
+    margin-left: auto;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    text-align: center;
+    gap: 8px;
+    padding-top: 20px;
+    font-size: 0.78rem;
+  }
+}
+
+@media (max-width: 380px) {
+  .nav-inner {
+    padding: 6px 10px;
+  }
+  .brand-name {
+    font-size: 0.82rem;
+  }
+  .nav-links {
+    gap: 10px;
+  }
+  .nav-link {
+    font-size: 10.5px;
+  }
+  .hero-tagline-single {
+    font-size: 0.8rem;
   }
 }
