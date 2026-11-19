@@ -27,7 +27,7 @@ var PORTFOLIO_DATA = {
   // 2. ABOUT ME
   about: {
     sectionTag: "Artist Profile",
-    title: "About Bikash",
+    title: "About Me",
     subtitle: "Passion Forged in Discipline & Dark Frames",
     bio: "I'm Bikash Barman, a 17-year-old (turning 18 soon) artist and 2D animator based in Siliguri, West Bengal. Currently in Class 12 and gearing up for college next year, I am dedicating focused discipline to hit my biggest academic milestone yet—aiming for 90%+ in board exams for the very first time. Parallel to my studies, my heart and full-time creative passion live in the realm of 12 FPS frame-by-frame 2D animation and traditional charcoal & graphite portraiture, constantly inspired and fueled by the cinematic storytelling of anime.",
     quickInfo: [
