@@ -43,6 +43,7 @@
         <nav class="nav-container">
           <ul class="nav-links">
             <li><a href="#hero" class="nav-link">Home</a></li>
+            <li><a href="#about" class="nav-link">About</a></li>
             <li><a href="#experience" class="nav-link">Experience</a></li>
             <li><a href="#skills" class="nav-link">Skills</a></li>
             <li><a href="#works" class="nav-link">Shorts</a></li>
@@ -114,7 +115,89 @@
     </section>
 
     <!-- ======================================================================
-         2. WORK EXPERIENCE TIMELINE SECTION
+         2. ABOUT ME SECTION
+         ====================================================================== -->
+    <section class="section" id="about">
+      <div class="content-wrapper">
+        <div class="section-header">
+          <span class="section-tag" id="about-section-tag">Artist Profile</span>
+          <h2 class="section-title" id="about-title">About Bikash</h2>
+          <p class="section-desc" id="about-subtitle">
+            Passion forged in discipline, high academic ambition, and dark frame-by-frame artistry.
+          </p>
+        </div>
+
+        <div class="about-container">
+          <!-- Authentic Bio Card -->
+          <div class="about-bio-card">
+            <div class="about-bio-header">
+              <div class="about-avatar-symbol">BB</div>
+              <div class="about-bio-meta">
+                <span class="about-bio-role">2D Animator & Traditional Portrait Artist</span>
+                <span class="about-bio-origin">Siliguri, West Bengal</span>
+              </div>
+            </div>
+            <p class="about-bio-text" id="about-bio-text">
+              I'm Bikash Barman, a 17-year-old (turning 18 soon) artist and 2D animator based in Siliguri, West Bengal. Currently in Class 12 and gearing up for college next year, I am dedicating focused discipline to hit my biggest academic milestone yet—aiming for 90%+ in board exams for the very first time. Parallel to my studies, my heart and full-time creative passion live in the realm of 12 FPS frame-by-frame 2D animation and traditional charcoal & graphite portraiture, constantly inspired and fueled by the cinematic storytelling of anime.
+            </p>
+          </div>
+
+          <!-- Quick Info Grid (Clean 2x2 Dark Cards) -->
+          <div class="about-grid" id="about-grid-container">
+            <!-- Card 1: Name -->
+            <div class="about-info-card">
+              <div class="about-card-top">
+                <span class="about-card-label">Name</span>
+                <div class="about-card-icon">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                </div>
+              </div>
+              <h3 class="about-card-value">Bikash Barman</h3>
+              <p class="about-card-detail">Artist behind Bikash Artistry</p>
+            </div>
+
+            <!-- Card 2: Age & Academic Focus -->
+            <div class="about-info-card">
+              <div class="about-card-top">
+                <span class="about-card-label">Age & Academic Focus</span>
+                <div class="about-card-icon">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"></path><path d="M6 12v5c3 3 9 3 12 0v-5"></path></svg>
+                </div>
+              </div>
+              <h3 class="about-card-value">17 (Turning 18 Soon)</h3>
+              <p class="about-card-detail">Class 12 Student (Aiming for 90%+ & College Next Year)</p>
+            </div>
+
+            <!-- Card 3: Location -->
+            <div class="about-info-card">
+              <div class="about-card-top">
+                <span class="about-card-label">Location</span>
+                <div class="about-card-icon">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                </div>
+              </div>
+              <h3 class="about-card-value">Siliguri, West Bengal</h3>
+              <p class="about-card-detail">India • Open for Projects</p>
+            </div>
+
+            <!-- Card 4: Hobby & Full-Time Passion -->
+            <div class="about-info-card">
+              <div class="about-card-top">
+                <span class="about-card-label">Hobby & Full-Time Passion</span>
+                <div class="about-card-icon">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                </div>
+              </div>
+              <h3 class="about-card-value">Watching Anime</h3>
+              <p class="about-card-detail">12 FPS Frame-by-Frame 2D Animation & Traditional Portrait Art</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         3. WORK EXPERIENCE TIMELINE SECTION
          ====================================================================== -->
     <section class="section" id="experience">
       <div class="content-wrapper">
@@ -552,7 +635,22 @@
             }
           }
 
-          // 2. Contact
+          // 2. About Me
+          if (data.about) {
+            const abTag = document.getElementById("about-section-tag");
+            if (abTag && data.about.sectionTag) abTag.textContent = data.about.sectionTag;
+
+            const abTitle = document.getElementById("about-title");
+            if (abTitle && data.about.title) abTitle.textContent = data.about.title;
+
+            const abSub = document.getElementById("about-subtitle");
+            if (abSub && data.about.subtitle) abSub.textContent = data.about.subtitle;
+
+            const abBio = document.getElementById("about-bio-text");
+            if (abBio && data.about.bio) abBio.textContent = data.about.bio;
+          }
+
+          // 3. Contact
           if (data.contact) {
             const loc = document.getElementById("contact-location");
             if (loc && data.contact.location) loc.textContent = data.contact.location;

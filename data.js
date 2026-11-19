@@ -24,7 +24,37 @@ var PORTFOLIO_DATA = {
     ctaSecondary: { label: "View Experience", href: "#experience" }
   },
 
-  // 2. WORK EXPERIENCE TIMELINE
+  // 2. ABOUT ME
+  about: {
+    sectionTag: "Artist Profile",
+    title: "About Bikash",
+    subtitle: "Passion Forged in Discipline & Dark Frames",
+    bio: "I'm Bikash Barman, a 17-year-old (turning 18 soon) artist and 2D animator based in Siliguri, West Bengal. Currently in Class 12 and gearing up for college next year, I am dedicating focused discipline to hit my biggest academic milestone yet—aiming for 90%+ in board exams for the very first time. Parallel to my studies, my heart and full-time creative passion live in the realm of 12 FPS frame-by-frame 2D animation and traditional charcoal & graphite portraiture, constantly inspired and fueled by the cinematic storytelling of anime.",
+    quickInfo: [
+      {
+        label: "Full Name",
+        value: "Bikash Barman",
+        detail: "Artist behind Bikash Artistry"
+      },
+      {
+        label: "Age & Academic Focus",
+        value: "17 (Turning 18 Soon)",
+        detail: "Class 12 Student (Aiming for 90%+ & College Next Year)"
+      },
+      {
+        label: "Location",
+        value: "Siliguri, West Bengal",
+        detail: "India • Open for Projects"
+      },
+      {
+        label: "Hobby & Full-Time Passion",
+        value: "Watching Anime",
+        detail: "12 FPS Frame-by-Frame 2D Animation & Traditional Portrait Art"
+      }
+    ]
+  },
+
+  // 3. WORK EXPERIENCE TIMELINE
   experience: [
     {
       role: "2D Digital Animator",
