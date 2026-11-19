@@ -1259,53 +1259,64 @@ body {
 
   .nav-inner {
     height: auto;
-    min-height: 52px;
-    padding: 8px 14px;
+    min-height: auto;
+    padding: 8px 14px 6px;
+    display: flex;
     flex-wrap: wrap;
-    gap: 8px;
-    justify-content: space-between;
     align-items: center;
+    justify-content: space-between;
+    row-gap: 6px;
   }
 
   .brand-logo {
+    order: 1;
     gap: 8px;
     font-size: 0.95rem;
   }
 
   .brand-crest {
-    width: 24px;
-    height: 24px;
+    width: 22px;
+    height: 22px;
   }
 
   .brand-name {
-    font-size: 0.88rem;
+    font-size: 0.86rem;
     letter-spacing: 0.08em;
   }
 
   .brand-subname {
-    font-size: 0.55rem;
+    font-size: 0.54rem;
     letter-spacing: 0.12em;
   }
 
   .nav-cta {
+    order: 2;
     padding: 6px 12px;
-    font-size: 0.68rem;
+    font-size: 10px;
     letter-spacing: 0.08em;
     gap: 4px;
     white-space: nowrap;
+    margin-left: auto;
   }
 
   .nav-cta svg {
     display: none;
   }
 
-  /* Stack nav links cleanly into a compact horizontal bar */
+  /* Stack nav links cleanly into a single compact second row underneath */
+  nav, .nav-container {
+    order: 3;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
   .nav-links {
     display: flex;
     width: 100%;
     justify-content: center;
     align-items: center;
-    gap: 16px;
+    gap: 12px;
     padding: 6px 0 2px;
     border-top: 1px solid rgba(220, 10, 35, 0.18);
     overflow-x: auto;
@@ -1319,28 +1330,42 @@ body {
   }
 
   .nav-link {
-    font-size: 11px;
-    padding: 3px 4px;
+    font-size: 10px;
+    padding: 2px 3px;
     letter-spacing: 0.06em;
   }
 
   /* 3. Hero Section & Typography */
   .hero-section {
-    padding: 120px 0 60px;
+    padding-top: 135px;
+    padding-bottom: 50px;
     min-height: auto;
   }
 
   .hero-glow-orb {
-    width: 300px;
-    height: 200px;
+    width: 280px;
+    height: 180px;
   }
 
+  /* Single-Line Pill Badge */
   .hero-badge {
-    font-size: 0.72rem;
-    padding: 6px 14px;
-    margin-bottom: 18px;
-    white-space: normal;
-    line-height: 1.4;
+    font-size: 9px;
+    letter-spacing: 0.08em;
+    padding: 6px 12px;
+    margin-bottom: 22px;
+    white-space: nowrap;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    max-width: 100%;
+    box-sizing: border-box;
+    line-height: 1;
+  }
+
+  .pulse-dot {
+    width: 6px;
+    height: 6px;
+    flex-shrink: 0;
   }
 
   .hero-tagline-single {
@@ -1588,16 +1613,25 @@ body {
 
 @media (max-width: 380px) {
   .nav-inner {
-    padding: 6px 10px;
+    padding: 6px 10px 4px;
   }
   .brand-name {
-    font-size: 0.82rem;
+    font-size: 0.8rem;
+  }
+  .nav-cta {
+    padding: 5px 10px;
+    font-size: 9.5px;
   }
   .nav-links {
-    gap: 10px;
+    gap: 9px;
   }
   .nav-link {
-    font-size: 10.5px;
+    font-size: 9.5px;
+  }
+  .hero-badge {
+    font-size: 8.5px;
+    letter-spacing: 0.05em;
+    padding: 5px 10px;
   }
   .hero-tagline-single {
     font-size: 0.8rem;
